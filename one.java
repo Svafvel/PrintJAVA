@@ -1,3 +1,4 @@
+// Menginport Component yang diperlukan
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,7 +7,9 @@ import java.awt.print.PrinterException;
 public class one {
 
 	public static void main(String[] args){
-
+		
+		// Frame
+		
 		JFrame window = new JFrame();
 
 		// LEFT
@@ -28,22 +31,30 @@ public class one {
 		BG.add(LakiLaki);
 		BG.add(Perempuan);
 
+		// Data ComboBox
 
 
-		String[] DataHari = new String[31];
-		String[] DataBulan = {"Pilih Bulan","January", "February", "Maret", "April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
-		String[] DataTahun = new String[31];
+		String[] DataHari = new String[32];
+		String[] DataBulan = {"Month","January", "February", "Maret", "April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
+		String[] DataTahun = new String[32];
 		String[] DataJurusan = {"Pilih Jurusan","Akutansi Perkantoran","Bisnis Manajement","Informatika Komputer", "Teknik Infomatika","Sekertaris"};
 		String[] DataTingkat = {"Pilih Tingkatan","Satu/I","Dua/II","Tiga/III","Empat/IV"};
 
-		for (int x = 0; x < DataHari.length; x++){
+		DataHari[0] = "Day";
+		DataTahun[0] = "Year";
+
+		for (int x = 0; x < (DataHari.length-1); x++){
 			
 			int z = x + 1;
 			int i = 1990 + x;
-			DataHari[x] = String.valueOf(z);
-			DataTahun[x] = String.valueOf(i);
+			DataHari[x+1] = String.valueOf(z);
+			DataTahun[x+1] = String.valueOf(i);
 
 		}
+		
+		// Akhir Data ComboBox
+		
+		// Component Label, Input, ComboBox dan Button
 
 		JLabel TanggalLahir = new JLabel("Tanggal Lahir");
 		JComboBox Hari = new JComboBox(DataHari);
@@ -72,6 +83,8 @@ public class one {
 		// AKHIR RIGHT
 
 		// FUCNTION
+		
+		//Even Tombol Tambah
 
 		Tambah.addActionListener(new ActionListener() {
 
@@ -102,6 +115,8 @@ public class one {
             }
 
 		});
+		
+		// Even Tombol Cetak
 
 		Cetak.addActionListener(new ActionListener() {
 
@@ -111,7 +126,7 @@ public class one {
 
 				try {
 
-					Hasil.print();
+					Hasil.print(); // Function print berasa Dari import.java.awt.print;
 
 				}catch (PrinterException ex){
 
